@@ -1,6 +1,10 @@
 # Add the desired library.
-from datetime import datetime   
 import json5
+import tkinter as tk
+from tkinter import font
+from tkinter import messagebox
+from datetime import datetime   
+
 
 # This class maintains a series of required values.
 class Note:
@@ -143,6 +147,7 @@ class NoteBook:
     def Removing_Item(self, With_ID = None):
         """By giving a numerical value to With_ID, calculations can be checked based on that ID"""
         return self.Repo.Remove_Item(With_ID)
-
-NoteBook = NoteBook()
 """backend is finished"""
+NoteBook = NoteBook()
+
+
