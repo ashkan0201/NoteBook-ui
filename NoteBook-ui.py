@@ -194,6 +194,19 @@ def button1_clicked():
     button_submit.pack()
     button_menu.pack(side=tk.RIGHT, padx=30, pady=10)
 
+# Data display function/
+def Show_Item():
+    global Search_ID
+    Search_ID = id_entry.get()
+    if Search_ID == '':
+        Show_All = NoteBook.Give_Item(With_ID = None)
+        text_box.delete(1.0, tk.END)  
+        text_box.insert(tk.END, Show_All)
+    else:
+        Show_All = NoteBook.Give_Item(With_ID = int(Search_ID))
+        text_box.delete(1.0, tk.END)  
+        text_box.insert(tk.END, Show_All)
+
 # Second button
 def button2_clicked():
     global text_box, id_entry
