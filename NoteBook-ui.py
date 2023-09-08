@@ -237,6 +237,19 @@ def button2_clicked():
     text_box.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
     scrollbar.config(command=text_box.yview)
 
+# Creating a function to delete data
+def Delete_Item():
+    global Search_ID
+    Delete_ID = id_entry1.get()
+    if Delete_ID == '':
+        Deleted = NoteBook.Removing_Item(With_ID = None)
+        text_box.delete(1.0, tk.END)  
+        text_box.insert(tk.END, Deleted)
+    else:
+        Deleted = NoteBook.Removing_Item(With_ID = int(Delete_ID))
+        text_box.delete(1.0, tk.END)  
+        text_box.insert(tk.END, Deleted)  
+
 # The third button
 def button3_clicked():
     global text_box, id_entry1
