@@ -160,6 +160,15 @@ def back_to_menu():
         widget.destroy()
     Meno()
 
+# Send button
+def submit_clicked():
+    global title, comment
+
+    title = entry_title.get()
+    comment = entry_comment.get()
+    messagebox.showinfo("    Data Of User    ", f"Title:           {title}\nComment:  {comment}")
+    NoteBook.Enter_Item(Title = title, Comment = comment)
+    button1_clicked()
 
 # First key design
 def button1_clicked():
