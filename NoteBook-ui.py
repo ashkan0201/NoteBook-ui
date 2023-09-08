@@ -194,7 +194,7 @@ def button1_clicked():
     button_submit.pack()
     button_menu.pack(side=tk.RIGHT, padx=30, pady=10)
 
-# Data display function/
+# Data display function
 def Show_Item():
     global Search_ID
     Search_ID = id_entry.get()
@@ -225,6 +225,36 @@ def button2_clicked():
     id_entry = tk.Entry(bottom_frame, width=10)
     id_entry.pack(side=tk.LEFT)
     button_submit = tk.Button(bottom_frame, text="Search", bg="#ff8080", fg="black", command = Show_Item)
+    button_submit.pack(side=tk.LEFT, padx=30, pady=10)
+    button_menu = tk.Button(bottom_frame, text="  Back  ", bg="#80ff80", fg="black", font=("Calibri", 10), command=back_to_menu)
+    button_menu.pack(side=tk.RIGHT)
+    
+    extra_bottom_frame = tk.Frame(root)
+    extra_bottom_frame.pack()
+    scrollbar = tk.Scrollbar(extra_bottom_frame)
+    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+    text_box = tk.Text(extra_bottom_frame, yscrollcommand=scrollbar.set)
+    text_box.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+    scrollbar.config(command=text_box.yview)
+
+# The third button
+def button3_clicked():
+    global text_box, id_entry1
+    for widget in root.winfo_children():
+        widget.destroy()
+
+    top_frame = tk.Frame(root)
+    top_frame.pack()
+    show_label = tk.Label(top_frame, text="Delete Item", font=("Calibri", 12))
+    show_label.pack()
+    
+    bottom_frame = tk.Frame(root)
+    bottom_frame.pack()
+    id_label = tk.Label(bottom_frame, text="Delete with ID:   ")
+    id_label.pack(side=tk.LEFT)
+    id_entry1 = tk.Entry(bottom_frame, width=10)
+    id_entry1.pack(side=tk.LEFT)
+    button_submit = tk.Button(bottom_frame, text="Delete", bg="#ff8080", fg="black")
     button_submit.pack(side=tk.LEFT, padx=30, pady=10)
     button_menu = tk.Button(bottom_frame, text="  Back  ", bg="#80ff80", fg="black", font=("Calibri", 10), command=back_to_menu)
     button_menu.pack(side=tk.RIGHT)
