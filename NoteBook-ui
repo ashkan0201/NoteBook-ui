@@ -34,14 +34,12 @@ class Repository:
     Get_Title_And_Comment function to get the ID Created in 
     the previous function and the Title and Comment from the user.
     """
-    def Get_Title_And_Comment(self):
+    def Get_Title_And_Comment(self, Title, Comment):
         self.Note.Demo_ID += 1
-        self.Note.Title = input("Title: ")
-        self.Note.Comment = input("Comment: ")
         self.Json_Dict = {
             "ID" : self.Note.Demo_ID,
-            "Title" : self.Note.Title,
-            "Comment" : self.Note.Comment,
+            "Title" : Title,
+            "Comment" : Comment,
             "Registration_Time" :  datetime.today().ctime()
         }
 
@@ -85,7 +83,8 @@ class Repository:
                         with open(self.Json_File, mode = "w") as Data:
                             json5.dump(self.Json_Remove, Data, indent = 4)
             except:
-                print("This ID does not exist!")
+                str_err = "This ID does not exist!"
+                return str_err
             else:
                 return self.Del_Item_With_ID
 
@@ -119,7 +118,8 @@ class View:
                 if With_ID not in List_Of_ID_V:
                     raise
             except:
-                print("Your entry is either incorrect or there is no such ID!")
+                str_err = "Your entry is either incorrect or there is no such ID!"
+                return str_err
             else:
                 return Result_Input
 
@@ -131,8 +131,8 @@ class NoteBook:
         self.Repo.Create()
 
     # This function causes the Get_Title_And_Comment function to be executed.
-    def Enter_Item(self):
-        self.Repo.Get_Title_And_Comment()
+    def Enter_Item(self, Title, Comment):
+        self.Repo.Get_Title_And_Comment(Title, Comment)
 
     # This function causes a function to display all items in json.
     def Give_Item(self, With_ID = None):
@@ -143,3 +143,6 @@ class NoteBook:
     def Removing_Item(self, With_ID = None):
         """By giving a numerical value to With_ID, calculations can be checked based on that ID"""
         return self.Repo.Remove_Item(With_ID)
+
+NoteBook = NoteBook()
+"""backend is finished"""
