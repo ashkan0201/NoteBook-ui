@@ -154,6 +154,13 @@ NoteBook = NoteBook()
 root = tk.Tk()
 root.title("NoteBook")
 
+# Function to return to the main window
+def back_to_menu():
+    for widget in root.winfo_children():
+        widget.destroy()
+    Meno()
+
+
 # First key design
 def button1_clicked():
     global entry_title, entry_comment
