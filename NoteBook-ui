@@ -154,10 +154,35 @@ NoteBook = NoteBook()
 root = tk.Tk()
 root.title("NoteBook")
 
+# First key design
+def button1_clicked():
+    global entry_title, entry_comment
+
+    for widget in root.winfo_children():
+        widget.destroy()
+
+    button_font = font.Font(family = "Calibri", size = 12)
+    label_text = tk.Label(root, text = "Enter your value", font=button_font)
+    label_title = tk.Label(root, text = "Title:")
+    entry_title = tk.Entry(root, width=50)
+    label_comment = tk.Label(root, text="Comment:")
+    entry_comment = tk.Entry(root, width=50)
+    button_submit = tk.Button(root, text="  Send  ", bg="#ff8080", fg="black", font=button_font)
+    button_menu = tk.Button(root, text="  Back  ", bg="#80ff80", fg="black", font=button_font)
+
+    label_text.pack(padx=0, pady=0)
+    label_title.pack()
+    entry_title.pack()
+    label_comment.pack()
+    entry_comment.pack()
+    button_submit.pack()
+    button_menu.pack(side=tk.RIGHT, padx=30, pady=10)
+
+
 # Home buttons
 def Meno():
     button_font = font.Font(family="Arial", size=14)
-    button1 = tk.Button(root, text="Enter Item", bg="#ff8080", fg="black", font=button_font)
+    button1 = tk.Button(root, text="Enter Item", bg="#ff8080", fg="black", font=button_font, command=button1_clicked)
     button2 = tk.Button(root, text="Show Item", bg="#80ff80", fg="black", font=button_font)
     button3 = tk.Button(root, text="Delete Item", bg="#8080ff", fg="black", font=button_font)
 
