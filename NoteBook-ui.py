@@ -183,8 +183,8 @@ def button1_clicked():
     entry_title = tk.Entry(root, width=50)
     label_comment = tk.Label(root, text="Comment:")
     entry_comment = tk.Entry(root, width=50)
-    button_submit = tk.Button(root, text="  Send  ", bg="#ff8080", fg="black", font=button_font)
-    button_menu = tk.Button(root, text="  Back  ", bg="#80ff80", fg="black", font=button_font)
+    button_submit = tk.Button(root, text="  Send  ", bg="#ff8080", fg="black", font=button_font, command=submit_clicked)
+    button_menu = tk.Button(root, text="  Back  ", bg="#80ff80", fg="black", font=button_font, command=back_to_menu)
 
     label_text.pack(padx=0, pady=0)
     label_title.pack()
@@ -267,7 +267,7 @@ def button3_clicked():
     id_label.pack(side=tk.LEFT)
     id_entry1 = tk.Entry(bottom_frame, width=10)
     id_entry1.pack(side=tk.LEFT)
-    button_submit = tk.Button(bottom_frame, text="Delete", bg="#ff8080", fg="black")
+    button_submit = tk.Button(bottom_frame, text="Delete", bg="#ff8080", fg="black",  command=Delete_Item)
     button_submit.pack(side=tk.LEFT, padx=30, pady=10)
     button_menu = tk.Button(bottom_frame, text="  Back  ", bg="#80ff80", fg="black", font=("Calibri", 10), command=back_to_menu)
     button_menu.pack(side=tk.RIGHT)
@@ -285,7 +285,7 @@ def Meno():
     button_font = font.Font(family="Arial", size=14)
     button1 = tk.Button(root, text="Enter Item", bg="#ff8080", fg="black", font=button_font, command=button1_clicked)
     button2 = tk.Button(root, text="Show Item", bg="#80ff80", fg="black", font=button_font, command=button2_clicked)
-    button3 = tk.Button(root, text="Delete Item", bg="#8080ff", fg="black", font=button_font)
+    button3 = tk.Button(root, text="Delete Item", bg="#8080ff", fg="black", font=button_font,  command=button3_clicked)
 
     button1.pack(fill = tk.BOTH, expand=True)
     button2.pack(fill = tk.BOTH, expand=True)
