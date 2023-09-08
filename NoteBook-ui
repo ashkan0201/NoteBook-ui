@@ -154,6 +154,18 @@ NoteBook = NoteBook()
 root = tk.Tk()
 root.title("NoteBook")
 
+# Home buttons
+def Meno():
+    button_font = font.Font(family="Arial", size=14)
+    button1 = tk.Button(root, text="Enter Item", bg="#ff8080", fg="black", font=button_font)
+    button2 = tk.Button(root, text="Show Item", bg="#80ff80", fg="black", font=button_font)
+    button3 = tk.Button(root, text="Delete Item", bg="#8080ff", fg="black", font=button_font)
+
+    button1.pack(fill = tk.BOTH, expand=True)
+    button2.pack(fill = tk.BOTH, expand=True)
+    button3.pack(fill = tk.BOTH, expand=True)
+
+Meno()
 # Adjust window size.
 window_width = 455
 window_height = 200
