@@ -194,12 +194,41 @@ def button1_clicked():
     button_submit.pack()
     button_menu.pack(side=tk.RIGHT, padx=30, pady=10)
 
+# Second button
+def button2_clicked():
+    global text_box, id_entry
+    for widget in root.winfo_children():
+        widget.destroy()
+
+    top_frame = tk.Frame(root)
+    top_frame.pack()
+    show_label = tk.Label(top_frame, text="Show Item", font=("Calibri", 12))
+    show_label.pack()
+    
+    bottom_frame = tk.Frame(root)
+    bottom_frame.pack()
+    id_label = tk.Label(bottom_frame, text="Search with ID:   ")
+    id_label.pack(side=tk.LEFT)
+    id_entry = tk.Entry(bottom_frame, width=10)
+    id_entry.pack(side=tk.LEFT)
+    button_submit = tk.Button(bottom_frame, text="Search", bg="#ff8080", fg="black", command = Show_Item)
+    button_submit.pack(side=tk.LEFT, padx=30, pady=10)
+    button_menu = tk.Button(bottom_frame, text="  Back  ", bg="#80ff80", fg="black", font=("Calibri", 10), command=back_to_menu)
+    button_menu.pack(side=tk.RIGHT)
+    
+    extra_bottom_frame = tk.Frame(root)
+    extra_bottom_frame.pack()
+    scrollbar = tk.Scrollbar(extra_bottom_frame)
+    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+    text_box = tk.Text(extra_bottom_frame, yscrollcommand=scrollbar.set)
+    text_box.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+    scrollbar.config(command=text_box.yview)
 
 # Home buttons
 def Meno():
     button_font = font.Font(family="Arial", size=14)
     button1 = tk.Button(root, text="Enter Item", bg="#ff8080", fg="black", font=button_font, command=button1_clicked)
-    button2 = tk.Button(root, text="Show Item", bg="#80ff80", fg="black", font=button_font)
+    button2 = tk.Button(root, text="Show Item", bg="#80ff80", fg="black", font=button_font, command=button2_clicked)
     button3 = tk.Button(root, text="Delete Item", bg="#8080ff", fg="black", font=button_font)
 
     button1.pack(fill = tk.BOTH, expand=True)
