@@ -143,11 +143,25 @@ class NoteBook:
         """By giving a numerical value to With_ID, calculations can be checked based on that ID"""
         return self.View.Show_All(With_ID)
 
-    # This function executes the Remove_Item function
+    # This function executes the Remove_Item function.
     def Removing_Item(self, With_ID = None):
         """By giving a numerical value to With_ID, calculations can be checked based on that ID"""
         return self.Repo.Remove_Item(With_ID)
 """backend is finished"""
 NoteBook = NoteBook()
 
+# Window construction.
+root = tk.Tk()
+root.title("NoteBook")
 
+# Adjust window size.
+window_width = 455
+window_height = 200
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = int((screen_width / 2) - (window_width / 2))
+y = int((screen_height / 2) - (window_height / 2))
+root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+
+# The mainloop of the window
+root.mainloop()
