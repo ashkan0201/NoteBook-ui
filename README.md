@@ -22,7 +22,7 @@ The data is stored in the `NoteBook.json` file
 **Clone the project**
 
 ```bash
-  git clone https://github.com/ashkan0201/NoteBook-ui
+  git clone https://github.com/ashkan0201/NoteBook-ui.git
 ```
 
 **Go to the project directory**
