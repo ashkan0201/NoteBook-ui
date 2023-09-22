@@ -38,7 +38,10 @@ The data is stored in the `NoteBook.json` file
   pip install tk
   pip install tkinter
 ```
-
+or
+```
+  pip install -r requirements.txt
+```
 **Start the server**
 
 ```bash
